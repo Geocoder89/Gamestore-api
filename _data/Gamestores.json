@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "5d713995b721c3bb38c1f5d0",
+    "user": "5d7a514b5d2c12c7449be045",
+    "name": "Gameworks Gamestore",
+    "description": "Gameworks is a Gamestore located in the heart of Boston that focuses on the selling the best games available at cheap rates,we sell lovely products",
+    "website": "https://Gameworks.com",
+    "phone": "(111) 111-1111",
+    "email": "enroll@gameworks.com",
+    "address": "233 Bay State Rd Boston MA 02215",
+    "categories": ["Shooter", "Adventure", "Sports", "Strategy"],
+    "moneyBack": true,
+    "TopPrized": true,
+    "highestRated": false
+  },
+  {
+    "_id": "5d713a66ec8f2b88b8f830b8",
+    "user": "5d7a514b5d2c12c7449be046",
+    "name": "ModernGames Gamestore",
+    "description": "Gameworks is a Gamestore located in the heart of Boston that focuses on the selling the best games available at cheap rates,best of games are sold here",
+    "website": "https://moderngames.com",
+    "phone": "(222) 222-222",
+    "email": "enroll@gamemasters.com",
+    "address": "235 Bay State Rd Boston MA 02215",
+    "categories": ["Shooter", "Adventure", "Sports", "Strategy"],
+    "moneyBack": true,
+    "TopPrized": true,
+    "highestRated": false
+  },
+
+  {
+    "_id": "5d725a037b292f5f8ceff787",
+    "user": "5c8a1d5b0190b214360dc031",
+    "name": "Gamemasters",
+    "description": "Gameworks is a Gamestore located in the heart of Boston that focuses on the selling the best games available at cheap rates,wonderful deals",
+    "website": "https://Gamemasters.com",
+    "phone": "(333) 333-3333",
+    "email": "buy@Gamemasters.com",
+    "address": "85 South Prospect Street Burlington VT 05405",
+    "categories": ["Shooter", "Adventure", "Sports", "Strategy"],
+    "moneyBack": true,
+    "TopPrized": true,
+    "highestRated": false
+  }
+]
