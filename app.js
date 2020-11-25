@@ -93,6 +93,15 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/", (req, res) => {
+  res
+    .set(
+      "Content-Security-Policy",
+      "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'"
+    )
+    .send("<html><head></head><body></body></html>");
+});
+
 const server = app.listen(PORT, () => {
   console.log(
     `Server is listening in ${process.env.NODE_ENV} mode on port  ${PORT}`.blue
