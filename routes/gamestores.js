@@ -12,6 +12,7 @@ const {
 // include other resource router
 
 const gamesRouter = require("./games");
+const reviewsRouter = require("./reviews");
 
 const router = express.Router();
 
@@ -20,10 +21,11 @@ const { protectRoute, authorize } = require("../middleware/auth");
 // Re-route into other resource router
 
 router.use("/:gamestoreId/games", gamesRouter);
+router.use("/:gamestoreId/reviews", reviewsRouter);
 
 const advancedResults = require("../middleware/advancedresults");
 
-const Gamestore = require("../models/Gamestores");
+const Gamestore = require("../models/Gamestore");
 
 router.route("/radius/:zipcode/:distance").get(getGamestoreByRadius);
 

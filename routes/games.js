@@ -21,7 +21,7 @@ router
   .get(
     advancedResults(Game, {
       path: "gamestore",
-      select: "name,description",
+      select: "name description",
     }),
     getGames
   )

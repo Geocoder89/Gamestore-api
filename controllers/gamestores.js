@@ -1,7 +1,7 @@
 const path = require("path");
 const ErrorResponse = require("../utils/errorResponse");
 const geocoder = require("../utils/Geocode");
-const Gamestore = require("../models/Gamestores");
+const Gamestore = require("../models/Gamestore");
 
 const asyncHandler = require("../middleware/async");
 

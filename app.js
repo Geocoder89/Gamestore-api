@@ -2,6 +2,12 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const sanitize = require("express-mongo-sanitize");
+const rateLimit = require("express-rate-limit");
+const hpp = require("hpp");
+const cors = require("cors");
+const xss = require("xss-clean");
+const helmet = require("helmet");
 const colors = require("colors");
 const errorHandler = require("./middleware/errorhandler");
 const connectDB = require("./config/db");
@@ -20,6 +26,7 @@ const gamestores = require("./routes/gamestores");
 const games = require("./routes/games");
 const auth = require("./routes/auth");
 const users = require("./routes/users");
+const reviews = require("./routes/reviews");
 
 const app = express();
 
@@ -37,7 +44,37 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+// File upload
 app.use(fileUpload());
+
+// Sanitize data
+
+app.use(sanitize());
+
+// Set Security headers
+
+app.use(helmet());
+
+// Prevnt XSS attacks
+
+app.use(xss());
+
+// Rate Limiting
+
+const limiter = rateLimit({
+  windowMs: 10 * 60 * 1000, //10mins
+  max: 100,
+});
+
+app.use(limiter);
+
+// preventing Http param pollution
+
+app.use(hpp());
+
+// Enable CORS to allow apps on another domain access our app
+
+app.use(cors());
 
 // set static
 
@@ -49,6 +86,7 @@ app.use("/api/v1/gamestores", gamestores);
 app.use("/api/v1/games", games);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/users", users);
+app.use("/api/v1/reviews", reviews);
 
 // error handling function
 app.use(errorHandler);

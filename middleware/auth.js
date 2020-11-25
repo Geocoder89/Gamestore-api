@@ -17,10 +17,9 @@ exports.protectRoute = asyncHandler(async (req, res, next) => {
   ) {
     // extract the token using the split method
     token = req.headers.authorization.split(" ")[1];
+  } else if (req.cookies.token) {
+    token = req.cookies.token;
   }
-  // else if(req.cookies.token) {
-  //     token = req.cookies.token
-  // }
 
   // make sure token exists
 

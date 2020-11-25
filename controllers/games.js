@@ -6,7 +6,7 @@ const asyncHandler = require("../middleware/async");
 
 // models
 const Games = require("../models/Games");
-const Gamestore = require("../models/Gamestores");
+const Gamestore = require("../models/Gamestore");
 
 // Get Games
 
@@ -30,7 +30,7 @@ exports.getGames = asyncHandler(async (req, res, next) => {
   }
 });
 
-// Get Games
+// Get Game
 
 //  @desc get single game
 

@@ -13,11 +13,12 @@ dotenv.config({
 
 // Load Models
 
-const Gamestore = require("./models/Gamestores");
+const Gamestore = require("./models/Gamestore");
 
 const Games = require("./models/Games");
 
 const User = require("./models/User");
+const Review = require("./models/Review");
 
 // connect to db
 
@@ -41,6 +42,10 @@ const games = JSON.parse(
 const users = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/users.json`, "utf-8")
 );
+
+const reviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/reviews.json`, "utf-8")
+);
 //function to import into db
 
 const importData = async () => {
@@ -48,6 +53,7 @@ const importData = async () => {
     await Gamestore.create(gamestores);
     await Games.create(games);
     await User.create(users);
+    await Review.create(reviews);
 
     console.log(`Data Imported...`.green.inverse);
 
@@ -64,6 +70,7 @@ const deleteData = async () => {
     await Gamestore.deleteMany();
     await Games.deleteMany();
     await User.deleteMany();
+    await Review.deleteMany();
     console.log(`Data destroyed.....`.red.inverse);
     process.exit();
   } catch (error) {
